@@ -22,6 +22,8 @@
     "@angular/platform-browser": "~11.0.0",
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
+    "@sentry/angular": "^5.27.3",
+    "@sentry/tracing": "^5.27.3",
     "firebase": "^8.0.1",
     "flexboxgrid": "^6.3.1",
     "hammerjs": "^2.0.8",
