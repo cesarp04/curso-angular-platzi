@@ -69,4 +69,10 @@ export class ProductDetailComponent implements OnInit {
       }
     );
   }
+
+  getFile() {
+    this.productsService.getFile().subscribe((content) => {
+      console.log(content);
+    });
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, retry } from 'rxjs/operators';
 
 import { Product } from './../../models/product.model';
 
@@ -46,9 +46,14 @@ export class ProductsService {
 
   getRandomUsers(): Observable<User[]> {
     return this.http.get('https://randomuser.me/api/?results=2').pipe(
+      retry(3),
       catchError(this.handleError),
       map((response: any) => response.results as User[])
     );
+  }
+
+  getFile() {
+    return this.http.get('assets/files/test.txt', { responseType: 'text' });
   }
 
   private handleError(error: HttpErrorResponse) {
